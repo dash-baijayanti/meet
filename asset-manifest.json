@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/dash-baijayanti/meet/static/css/main.f855e6bc.css",
+    "main.js": "/dash-baijayanti/meet/static/js/main.b249b70b.js",
+    "static/js/453.4a9980c6.chunk.js": "/dash-baijayanti/meet/static/js/453.4a9980c6.chunk.js",
+    "service-worker.js": "/dash-baijayanti/meet/service-worker.js",
+    "static/media/logo.svg": "/dash-baijayanti/meet/static/media/logo.103b5fa18196d5665a7e12318285c916.svg",
+    "index.html": "/dash-baijayanti/meet/index.html",
+    "main.f855e6bc.css.map": "/dash-baijayanti/meet/static/css/main.f855e6bc.css.map",
+    "main.b249b70b.js.map": "/dash-baijayanti/meet/static/js/main.b249b70b.js.map",
+    "453.4a9980c6.chunk.js.map": "/dash-baijayanti/meet/static/js/453.4a9980c6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.b249b70b.js"
+  ]
+}
