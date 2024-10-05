@@ -45,3 +45,18 @@ That shows the event details on a chart.
 Given: The user is viewing the event list page. <br />
 When: The user taps on a "View Charts" button. <br />
 Then: A chart will render showing details of the event
+
+## Meet App Serverless Architecture
+
+This diagram represents the architecture of the Meet App built using serverless technology:
+
+1. **React App (Frontend)**: The client-side interface for users.
+2. **API Gateway**: Exposes Lambda functions to the frontend, handling all incoming requests.
+3. **Lambda Functions**: Serverless functions handling business logic (e.g., user authentication, scheduling, fetching events).
+4. **DynamoDB (Database)**: Stores meeting data, schedules, and user information.
+5. **AWS Cognito (Authentication)**: Manages user sign-up/sign-in, identity verification.
+6. **CloudWatch (Monitoring)**: Monitors the performance and logs of the Lambda functions.
+
+Below is the architectural diagram of the Meet App based on serverless architecture:
+
+![Meet App Architecture](./assets/diagram.png)
