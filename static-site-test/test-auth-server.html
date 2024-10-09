@@ -53,7 +53,7 @@
       const resultElement = document.getElementById("result");
       const resultLink = document.getElementById("authURL");
       // Replace this with your own endpoint
-      const getAuthURL = " https://uac1sylesg.execute-api.eu-central-1.amazonaws.com/api/get-auth-url";
+      const getAuthURL = " https://cctxyvyeul.execute-api.eu-central-1.amazonaws.com/api/get-auth-url";
 
       getAuthUrlButton.onclick = function () {
         fetch(getAuthURL)
@@ -75,7 +75,7 @@
       const getAccessToken = document.getElementById("getToken");
       const accessTokenElement = document.getElementById("accessToken");
       const getToken =
-        "https://uqg60n9o6g.execute-api.eu-central-1.amazonaws.com/dev/api/token";
+        "https://m4smi1kcse.execute-api.eu-central-1.amazonaws.com/dev/api/token";
 
       getAccessToken.onclick = function () {
         let code = codeValue.value;
@@ -97,13 +97,14 @@
       // 3
       const getEvents = document.getElementById("getEvents");
       const events = document.getElementById("events");
-      const getCalendarEvents = "https://uqg60n9o6g.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
+      const getCalendarEvents = "https://m4smi1kcse.execute-api.eu-central-1.amazonaws.com/dev/api/get-events";
       getEvents.onclick = function () {
         const { access_token } = JSON.parse(accessTokenElement.innerText);
         const eventRequest = getCalendarEvents + "/" + access_token;
         fetch(eventRequest)
           .then(function (response) {
             return response.json();
+            console.log(response);
           })
           .then(function (json) {
             events.innerText = JSON.stringify(json, null, 2);
@@ -111,8 +112,5 @@
       };
     </script>
   </body>
-
-</html>
-</body>
 
 </html>
