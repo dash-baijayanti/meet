@@ -1,12 +1,17 @@
 import { render } from '@testing-library/react';
 import EventList from '../components/EventList';
-// import CitySearch from '../components/CitySearch';
+import CitySearch from '../components/CitySearch';
 
 describe('<EventList /> component', () => {
+  
   let EventListComponent;
   beforeEach(() => {
     EventListComponent = render(<EventList/>);
   })
+
+  afterEach(() => {
+   jest.clearAllTimers(); // Ensure everything is cleaned up after each test
+  });
 
   test('has an element with "list" role', () => {
     expect(EventListComponent.queryByRole("list")).toBeInTheDocument();
