@@ -10,10 +10,6 @@ describe('<EventList /> component', () => {
     EventListComponent = render(<EventList/>);
   })
 
-  afterEach(() => {
-   jest.clearAllTimers(); // Ensure everything is cleaned up after each test
-  });
-
   test('has an element with "list" role', () => {
     expect(EventListComponent.queryByRole("list")).toBeInTheDocument();
   });
