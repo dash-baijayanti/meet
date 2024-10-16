@@ -6,24 +6,28 @@ import userEvent from "@testing-library/user-event";
 describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsComponent;
   beforeEach(() => {
-    NumberOfEventsComponent = render(<NumberOfEvents setCurrentNOE={() => {}} setErrorAlert={() => {}} />)
+    NumberOfEventsComponent = render(<NumberOfEvents setEventCount={() => {}} />);
   })
 
   test('number of events has the role of textbox', () => {
-    const input = NumberOfEventsComponent.queryByRole('textbox');
-    expect(input).toBeInTheDocument();
+    const inputElement = getByRole('textbox');
+    expect(inputElement).toBeInTheDocument();
   });
 
   test('ensures the default value of textbox is 32', () => {
-    expect(NumberOfEventsComponent.getByRole('textbox')).toHaveValue('32');
+    const inputElement = getByRole('textbox');
+    expect(inputElement.value).toBe('32');
   });
 
   test('texbox value changes according to what user types', async () => {
-    numberOfEvents = NumberOfEventsComponent.getByRole('textbox');
-    const user = userEvent.setup();
-    await user.type(numberOfEvents, '{backspace}{backspace}10');
-    const allEvents = await getEvents();
-    NumberOfEventsComponent.rerender(<NumberOfEvents />);
-    expect(numberOfEvents).toHaveValue('10');
-  })
+    const inputElement = getByRole('textbox');
+  
+    // Simulate typing into the input (e.g., remove 32 and type 10)
+    fireEvent.change(inputElement, { target: { value: '10' } });
+    
+    // Expect the input's value to be 10 now
+    expect(inputElement.value).toBe('10');
+  });
+
+  
 });

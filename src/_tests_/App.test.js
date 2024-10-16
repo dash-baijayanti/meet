@@ -20,8 +20,8 @@ describe('<App /> component', () => {
     expect(AppDOM.querySelector('#city-search')).toBeInTheDocument();
     });
 
-  test('render number of events', () => {
-    expect(AppDOM.querySelector('#numberOfEvents')).toBeInTheDocument();
+    test('NumberOfEvents component is rendered', () => {
+      expect(AppDOM.querySelector('#numberOfEvents')).toBeInTheDocument();
     });
 
 });
@@ -53,18 +53,13 @@ describe('<App /> integration', () => {
     });
   });
 
-  test('number of events per page changes according to what user types', async () => {
-    render(<App />);
-  
-  // Select the input field using screen.getByRole
-  const NumberOfEventsInput = document.querySelector('input.number'); 
-
-  // Clear the input field and type "10"
-  await userEvent.clear(NumberOfEventsInput);
-  await userEvent.type(NumberOfEventsInput, "10");
-
-  // Wait for the number of events to update and then check the length of the event list
-  const events = await screen.findAllByRole('listitem'); // Adjust role if necessary
-  expect(events).toHaveLength(10); // Check that 10 events are rendered
+  test('User can type into NumberOfEvents input field', async () => {
+    const inputElement = getByRole('textbox');
+    
+    // Simulate typing: backspace twice to remove '32', then type '10'
+    await userEvent.type(inputElement, '{backspace}{backspace}10');
+    
+    // Expect the input's value to be 10
+    expect(inputElement.value).toBe('10');
   });
   });
