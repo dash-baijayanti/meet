@@ -1,6 +1,6 @@
 // src/__tests__/App.test.js
 
-import { render, within, waitFor, screen } from '@testing-library/react';
+import { render, within, waitFor } from '@testing-library/react';
 import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
 
@@ -54,12 +54,12 @@ describe('<App /> integration', () => {
   });
 
   test('User can type into NumberOfEvents input field', async () => {
-    const inputElement = getByRole('textbox');
-    
-    // Simulate typing: backspace twice to remove '32', then type '10'
-    await userEvent.type(inputElement, '{backspace}{backspace}10');
-    
-    // Expect the input's value to be 10
-    expect(inputElement.value).toBe('10');
+    const AppComponent = render(<App />);
+    const AppDOM = AppComponent.container.firstChild;
+    const EventListDOM = AppDOM.querySelector('#event-list');  
+    await waitFor(() => {
+      const EventListItems = within(EventListDOM).queryAllByRole('listitem');
+      expect(EventListItems.length).toBe(32);
   });
   });
+});

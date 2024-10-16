@@ -1,13 +1,14 @@
 import { useState } from "react";
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-const NumberOfEvents = ({ number, setNumber  }) => {
+const NumberOfEvents = ({ currentNOE, setCurrentNOE  }) => {
   const [eventCount, setEventCount] = useState(32);
 
   const handleInputChange = (e) => {
     let value = e.target.value;
-    setNumber(value);
-    number(value);
+    setEventCount(value);
+    setCurrentNOE(value);
+
 
   //   let errorText;
   //   if (isNaN(value) || value < 0) { 

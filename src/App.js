@@ -9,6 +9,7 @@ import { getEvents,extractLocations } from './api';
 
 import './App.css';
 
+jest.mock('./api'); 
 
 const App = () => {
   const [events, setEvents] = useState([]);

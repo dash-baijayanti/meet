@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import NumberOfEvents from "../components/NumberOfEvents";
 import { getEvents } from "../api";
-import userEvent from "@testing-library/user-event";
+import { fireEvent } from "@testing-library/react";
 
 describe('<NumberOfEvents /> component', () => {
   let NumberOfEventsComponent;
@@ -10,23 +10,21 @@ describe('<NumberOfEvents /> component', () => {
   })
 
   test('number of events has the role of textbox', () => {
-    const inputElement = getByRole('textbox');
-    expect(inputElement).toBeInTheDocument();
+    const input = NumberOfEventsComponent.queryByRole('textbox');
+    expect(input).toBeInTheDocument(); 
   });
 
   test('ensures the default value of textbox is 32', () => {
-    const inputElement = getByRole('textbox');
-    expect(inputElement.value).toBe('32');
+    expect( NumberOfEventsComponent.getByRole('textbox')).toHaveValue('32'); 
   });
 
   test('texbox value changes according to what user types', async () => {
-    const inputElement = getByRole('textbox');
-  
-    // Simulate typing into the input (e.g., remove 32 and type 10)
-    fireEvent.change(inputElement, { target: { value: '10' } });
-    
-    // Expect the input's value to be 10 now
-    expect(inputElement.value).toBe('10');
+    const numverOfEvents = NumberOfEventsComponent.getByRole('textbox');
+    const user = userEvent.setup(); 
+    await user.type(numverOfEvents, '{backspace}{backspace}10');   
+    const allEvents = await getEvents(); 
+    NumberOfEventsComponent.rerender(<NumberOfEvents setCurrentNOE={allEvents} setErrorAlert={() => {}} />);   
+    expect(numverOfEvents).toHaveValue('10');
   });
 
   

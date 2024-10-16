@@ -4,19 +4,32 @@ const Event = ({event}) => {
     const [showDetails, setShowDetails] = useState(false);
     return (
         <li className="event">
+           <span className='eventSummary'>
             <p>{event.summary}</p>
            
-            <p>{event.start?.dateTime}</p>
-            <p>{event.end?.dateTime}</p>
-            <p>{event.location}</p>
-            <button className="detail-btn" onClick={()=>setShowDetails(!showDetails)}>
-                { showDetails ? "Hide details" : "Show details"}
-            </button>
+            <p className="location">{event.location}</p>
+        <p className="originalStartTime">{event && (new Date(event.originalStartTime.dateTime)).toUTCString()}</p>
+      </span>
+      {showDetails ? (
+        <div className='details' id="details" >
+          <p>{event.description}</p>
+          <a href={event.htmlLink}>See details on Google Calendar</a>
+        </div> 
+      ) : null}
+      <button 
+        id="show-details-btn"
+        className='details-btn'
+        name="Show Details" 
+        onClick={() => setShowDetails(!showDetails)}
+      >
             {
                 showDetails ?  <p role="description" className="details">{event.description}</p> : <></>
             }
+            </button>
         </li>
     );
   }
   
   export default Event;
+
+  
