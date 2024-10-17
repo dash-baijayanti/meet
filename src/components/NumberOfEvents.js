@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import PropTypes from 'prop-types';
 
 const NumberOfEvents = ({ currentNOE, setCurrentNOE  }) => {
   const [eventCount, setEventCount] = useState(32);
@@ -8,17 +7,6 @@ const NumberOfEvents = ({ currentNOE, setCurrentNOE  }) => {
     let value = e.target.value;
     setEventCount(value);
     setCurrentNOE(value);
-
-
-  //   let errorText;
-  //   if (isNaN(value) || value < 0) { 
-  //     errorText = 'Please enter a valid number'
-  //   } else {
-  //     errorText = '';
-  //   }
-  //   setCurrentNOE(value);
-  //   setErrorAlert(errorText); 
-    
   }
  
   return (

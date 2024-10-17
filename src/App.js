@@ -5,7 +5,6 @@ import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { useEffect, useState } from 'react';
 import { getEvents,extractLocations } from './api';
-// import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 
 import './App.css';
 
@@ -13,27 +12,28 @@ import './App.css';
 
 const App = () => {
   const [events, setEvents] = useState([]);
-  const [currentNOE, setCurrentNOE] = useState(36);
+  const [currentNOE, setCurrentNOE] = useState(32);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
-  const [showDetails, setShowDetails] = useState([]);
-  // const [errorAlert, setErrorAlert] = useState('');
-  // const [infoAlert, setInfoAlert] = useState("");
-  // const [warningAlert, setWarningAlert] = useState("");
 
   useEffect(() => {
-    fetchData(); // Fetch events when currentCity or currentNOE changes
-  }, [currentCity]);
+    const fetchData = async () => {
 
+      const allEvents = await getEvents();
 
-  const fetchData = async () => {
-    const allEvents = await getEvents();
-    const filteredEvents = currentCity === "See all cities" 
-     ? allEvents 
-     : allEvents.filter(event => event.location === currentCity);
-    setEvents(filteredEvents.slice(0, currentNOE));
-    setAllLocations(extractLocations(allEvents));
-  }
+      setAllLocations(extractLocations(allEvents));
+
+      const filteredEvents = currentCity === "See all cities" 
+      
+        ? allEvents 
+        : allEvents.filter(event => event.location === currentCity);
+
+        console.log('Filtered Events Count:', filteredEvents.length);
+      setEvents(filteredEvents.slice(0, currentNOE));
+    };
+  
+  fetchData();
+  }, [currentCity, currentNOE]); // Now, currentNOE is included as a dependency
 
   
   return (
@@ -46,7 +46,7 @@ const App = () => {
 
       {/* Pass currentNOE and setCurrentNOE to NumberOfEvents */}
       <NumberOfEvents 
-        // currentNOE={currentNOE}  // Display the current number of events
+        currentNOE={currentNOE}  // Display the current number of events
         setCurrentNOE={setCurrentNOE}  // Update the number of events
       />
 

@@ -3,7 +3,6 @@
 import { render, within, waitFor } from '@testing-library/react';
 import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
-
 import App from '../App';
 
 describe('<App /> component', () => {
@@ -47,19 +46,14 @@ describe('<App /> integration', () => {
       event => event.location === 'Berlin, Germany'
     );
 
+     console.log('Rendered Events Count:', allRenderedEventItems.length);
+    console.log('Expected Berlin Events Count:', berlinEvents.length);
+
     expect(allRenderedEventItems.length).toBe(berlinEvents.length);
     allRenderedEventItems.forEach(event => {
       expect(event.textContent).toContain("Berlin, Germany");
     });
   });
 
-  // test('User can type into NumberOfEvents input field', async () => {
-  //   const AppComponent = render(<App />);
-  //   const AppDOM = AppComponent.container.firstChild;
-  //   const EventListDOM = AppDOM.querySelector('#event-list');  
-  //   await waitFor(() => {
-  //     const EventListItems = within(EventListDOM).queryAllByRole('listitem');
-  //     expect(EventListItems.length).toBe(32);
-  // });
-  });
-// })
+  
+})
