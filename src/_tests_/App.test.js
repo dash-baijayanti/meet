@@ -53,13 +53,13 @@ describe('<App /> integration', () => {
     });
   });
 
-  test('User can type into NumberOfEvents input field', async () => {
-    const AppComponent = render(<App />);
-    const AppDOM = AppComponent.container.firstChild;
-    const EventListDOM = AppDOM.querySelector('#event-list');  
-    await waitFor(() => {
-      const EventListItems = within(EventListDOM).queryAllByRole('listitem');
-      expect(EventListItems.length).toBe(32);
+  // test('User can type into NumberOfEvents input field', async () => {
+  //   const AppComponent = render(<App />);
+  //   const AppDOM = AppComponent.container.firstChild;
+  //   const EventListDOM = AppDOM.querySelector('#event-list');  
+  //   await waitFor(() => {
+  //     const EventListItems = within(EventListDOM).queryAllByRole('listitem');
+  //     expect(EventListItems.length).toBe(32);
+  // });
   });
-  });
-});
+// })

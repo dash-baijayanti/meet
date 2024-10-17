@@ -1,7 +1,7 @@
 
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
-import { mockData } from './mock-data';
+// import mockData from './mock-data';
 import NumberOfEvents from './components/NumberOfEvents';
 import { useEffect, useState } from 'react';
 import { getEvents,extractLocations } from './api';
@@ -9,16 +9,22 @@ import { getEvents,extractLocations } from './api';
 
 import './App.css';
 
-jest.mock('./api'); 
+// jest.mock('./api'); 
 
 const App = () => {
   const [events, setEvents] = useState([]);
-  const [currentNOE, setCurrentNOE] = useState(32);
+  const [currentNOE, setCurrentNOE] = useState(36);
   const [allLocations, setAllLocations] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
+  const [showDetails, setShowDetails] = useState([]);
   // const [errorAlert, setErrorAlert] = useState('');
   // const [infoAlert, setInfoAlert] = useState("");
   // const [warningAlert, setWarningAlert] = useState("");
+
+  useEffect(() => {
+    fetchData(); // Fetch events when currentCity or currentNOE changes
+  }, [currentCity]);
+
 
   const fetchData = async () => {
     const allEvents = await getEvents();
@@ -29,10 +35,7 @@ const App = () => {
     setAllLocations(extractLocations(allEvents));
   }
 
-  useEffect(() => {
-    fetchData(); // Fetch events when currentCity or currentNOE changes
-  }, [currentCity, currentNOE]);
-
+  
   return (
     <div className="App">
       {/* Pass props to CitySearch */}
@@ -43,7 +46,7 @@ const App = () => {
 
       {/* Pass currentNOE and setCurrentNOE to NumberOfEvents */}
       <NumberOfEvents 
-        currentNOE={currentNOE}  // Display the current number of events
+        // currentNOE={currentNOE}  // Display the current number of events
         setCurrentNOE={setCurrentNOE}  // Update the number of events
       />
 

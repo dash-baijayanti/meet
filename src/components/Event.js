@@ -1,35 +1,28 @@
+// src/components/Event.js
+
 import { useState } from "react";
 
-const Event = ({event}) => {
-    const [showDetails, setShowDetails] = useState(false);
-    return (
-        <li className="event">
-           <span className='eventSummary'>
-            <p>{event.summary}</p>
-           
-            <p className="location">{event.location}</p>
-        <p className="originalStartTime">{event && (new Date(event.originalStartTime.dateTime)).toUTCString()}</p>
-      </span>
+const Event = ({ event }) => {
+  const [showDetails, setShowDetails] = useState(false);
+  return (
+    <li>
+      <div className="eventSummary">
+        <h2>{event.summary}</h2>
+        <p>{event.location}</p>
+        <p>{event.created}</p>
+      </div>
       {showDetails ? (
-        <div className='details' id="details" >
+        <div className="eventDetails">
           <p>{event.description}</p>
-          <a href={event.htmlLink}>See details on Google Calendar</a>
-        </div> 
+        </div>
       ) : null}
-      <button 
-        id="show-details-btn"
-        className='details-btn'
-        name="Show Details" 
+      <button className="show-details-btn"
         onClick={() => setShowDetails(!showDetails)}
-      >
-            {
-                showDetails ?  <p role="description" className="details">{event.description}</p> : <></>
-            }
-            </button>
-        </li>
-    );
-  }
+        >
+          {showDetails ? "Hide Details" : "Show Details"}
+        </button>
+    </li>
+  );
+}
   
-  export default Event;
-
-  
+export default Event;
