@@ -1,5 +1,3 @@
-// src/__tests__/App.test.js
-
 import { render, within, waitFor } from '@testing-library/react';
 import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
@@ -45,6 +43,7 @@ describe('<App /> integration', () => {
     const berlinEvents = allEvents.filter(
       event => event.location === 'Berlin, Germany'
     );
+    // .slice(0, 32);
 
      console.log('Rendered Events Count:', allRenderedEventItems.length);
     console.log('Expected Berlin Events Count:', berlinEvents.length);
@@ -54,6 +53,6 @@ describe('<App /> integration', () => {
       expect(event.textContent).toContain("Berlin, Germany");
     });
   });
+});
 
   
-})

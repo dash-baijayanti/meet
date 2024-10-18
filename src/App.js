@@ -17,24 +17,19 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
 
   useEffect(() => {
-    const fetchData = async () => {
+    fetchData();
+  }, [currentCity]);
 
-      const allEvents = await getEvents();
+  const fetchData = async () => {
+    const allEvents = await getEvents();
+    const filteredEvents = currentCity === "See all cities" ?
+      allEvents :
+      allEvents.filter(event => event.location === currentCity)
+    setEvents(filteredEvents.slice(0, currentNOE));
+    setAllLocations(extractLocations(allEvents));
+  }
 
-      setAllLocations(extractLocations(allEvents));
-
-      const filteredEvents = currentCity === "See all cities" 
-      
-        ? allEvents 
-        : allEvents.filter(event => event.location === currentCity);
-
-        console.log('Filtered Events Count:', filteredEvents.length);
-      setEvents(filteredEvents.slice(0, currentNOE));
-    };
   
-  fetchData();
-  }, [currentCity, currentNOE]); // Now, currentNOE is included as a dependency
-
   
   return (
     <div className="App">
@@ -46,8 +41,8 @@ const App = () => {
 
       {/* Pass currentNOE and setCurrentNOE to NumberOfEvents */}
       <NumberOfEvents 
-        currentNOE={currentNOE}  // Display the current number of events
-        setCurrentNOE={setCurrentNOE}  // Update the number of events
+        // currentNOE={currentNOE}  // Display the current number of events
+        // setCurrentNOE={setCurrentNOE}  // Update the number of events
       />
 
       {/* Display the event list */}
