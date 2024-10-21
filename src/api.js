@@ -73,7 +73,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
       if (!code) {
         const response = await fetch(
-          "https://m4smi1kcse.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url",{mode: 'no-cors'}
+          "https://cctxyvyeul.execute-api.eu-central-1.amazonaws.com/api/get-auth-url",{mode: 'no-cors'}
         );
         const result = await response.json();
         const { authUrl } = result;
