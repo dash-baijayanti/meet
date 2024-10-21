@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     fetchData();
-  }, [currentCity]);
+  }, [currentCity, currentNOE]);
 
   const fetchData = async () => {
     const allEvents = await getEvents();
@@ -41,8 +41,8 @@ const App = () => {
 
       {/* Pass currentNOE and setCurrentNOE to NumberOfEvents */}
       <NumberOfEvents 
-        // currentNOE={currentNOE}  // Display the current number of events
-        // setCurrentNOE={setCurrentNOE}  // Update the number of events
+        currentNOE={currentNOE}  // Display the current number of events
+         setCurrentNOE={setCurrentNOE}  // Update the number of events
       />
 
       {/* Display the event list */}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import React from "react";
 
 const CitySearch = ({allLocations, setCurrentCity}) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
