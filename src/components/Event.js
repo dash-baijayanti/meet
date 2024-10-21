@@ -1,11 +1,10 @@
 // src/components/Event.js
-
 import { useState } from "react";
 
 const Event = ({ event }) => {
   const [showDetails, setShowDetails] = useState(false);
   return (
-    <li>
+    <li >
       <div className="eventSummary">
         <h2>{event.summary}</h2>
         <p>{event.location}</p>

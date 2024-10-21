@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import CitySearch from "../components/CitySearch";
 import { extractLocations, getEvents } from "../api";
 import App from "../App";
+import './App.css';
 
 // jest.mock("../api");
 

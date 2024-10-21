@@ -36,3 +36,114 @@
     transform: rotate(360deg);
   }
 }
+
+#event-list li {
+  list-style-type: none;  /* Removes the bullet points */
+  padding: 20px;          /* Adds padding around each list item */
+  margin-bottom: 20px;
+  margin-top: 20px;    /* Adds space between each event */
+  border: 2px solid #9896961d; /* Adds a light gray border */
+  border-radius: 10px;    /* Rounds the corners of the border */
+  background-color: rgba(128, 123, 123, 0); /* Adds a white background to each list item */
+
+  /* Adds a subtle shadow */
+  box-shadow: 2px 4px 10px rgba(9, 9, 9, 0.1), 0 1px 3px rgba(14, 13, 13, 0.252);
+}
+
+/* Optional: Style for the event title */
+#event-list li .eventSummary {
+  font-weight: bold;  /* Makes the event title bold */
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  border: 2px solid #7472720d;
+  border-radius: 10px; 
+  background-color: rgba(123, 121, 121, 0.115);  
+  box-shadow: #61dafb;
+}
+
+#event-list li .eventDetails p 
+{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 18px; 
+}
+
+/* Optional: Style for the buttons */
+#event-list li button {
+  background-color: #007bff; /* Blue background for the button */
+  color: white;              /* White text color */
+  border: none;              /* Removes button border */
+  padding: 8px 12px;         /* Adds padding inside the button */
+  cursor: pointer;           /* Shows a pointer cursor on hover */
+  margin-top: 10px;          /* Adds space between the button and content */
+  border-radius: 5px; 
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 500;      
+}
+
+/* Optional: Add a hover effect on buttons */
+#event-list li button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+}
+.city {
+  width: 300px;               /* Sets the width of the input field */
+  padding: 10px;              /* Adds padding inside the input */
+  border: 1px solid #ccc;     /* Adds a light gray border */
+  border-radius: 5px;         /* Rounds the corners */
+  font-size: 16px; 
+  font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;           /* Sets the font size */
+  margin-bottom: 20px;  
+  margin-top: 20px;      /* Adds space below the input */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+/* Style for the list of suggestions */
+.suggestions {
+  list-style-type: none;      /* Removes bullet points from the list */
+  padding: 0;                 /* Removes padding around the list */
+  margin: 0;                  /* Removes margin */
+  background-color: #86848401;     /* White background for suggestions */
+  border: 1px solid #ccc;     /* Adds a light gray border */
+  border-radius: 5px;         /* Rounds the corners */
+  max-height: 200px;          /* Limits the height of the suggestion box */
+  overflow-y: auto;           /* Adds scroll when there are too many suggestions */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Adds shadow to the dropdown */
+}
+
+.suggestions li {
+  padding: 10px;              /* Adds padding to each suggestion */
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;            /* Changes cursor to pointer on hover */
+}
+
+.suggestions li:hover {
+  background-color: #f0f0f0;  /* Highlights the suggestion on hover */
+}
+
+/* Style for the number of events input field */
+.number-of-events {
+  margin-top: 20px; 
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;          /* Adds space at the top */
+}
+
+.number-of-events label {
+  font-size: 20px;            /* Sets the label font size */
+  margin-bottom: 10px; 
+  color: #333;              /* Sets the color of the label */
+  font-weight: bold; 
+  color:  #0056b3;      /* Adds space below the label */
+}
+
+.number-of-events input {
+  width: auto;               /* Sets the width of the input */
+  padding: 8px;               /* Adds padding inside the input */
+  border: 1px solid #ccc;     /* Adds a light gray border */
+  border-radius: 5px;         /* Rounds the corners */
+  font-size: 16px;  
+  color:  #0056b3;          /* Sets the font size */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}

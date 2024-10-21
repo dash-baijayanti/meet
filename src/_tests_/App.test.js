@@ -2,6 +2,7 @@ import { render, within, waitFor } from '@testing-library/react';
 import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
+import './App.css';
 
 describe('<App /> component', () => {
   let AppDOM;

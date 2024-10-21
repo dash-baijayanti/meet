@@ -2,8 +2,9 @@ import { render, waitFor, within } from '@testing-library/react';
 import EventList from '../components/EventList';
 // import CitySearch from '../components/CitySearch';
 import { getEvents } from '../api';
-import mockData from '../mock-data';
+// import mockData from '../mock-data';
 import App from '../App';
+import './App.css';
 
 describe('<EventList /> component', () => {
   

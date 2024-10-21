@@ -2,7 +2,7 @@ import Event from "../components/Event";
 import mockData  from "../mock-data";
 import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-
+import './App.css';
 
 describe('<Event /> component', () => {
   let EventComponent;
