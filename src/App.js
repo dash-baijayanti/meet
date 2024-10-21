@@ -1,4 +1,4 @@
-
+import React from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 // import mockData from './mock-data';
@@ -21,6 +21,7 @@ const App = () => {
   }, [currentCity, currentNOE]);
 
   const fetchData = async () => {
+
     const allEvents = await getEvents();
     const filteredEvents = currentCity === "See all cities" ?
       allEvents :
