@@ -75,7 +75,7 @@ export const getAccessToken = async () => {
         const response = await fetch(
           "https://cctxyvyeul.execute-api.eu-central-1.amazonaws.com/api/get-auth-url",{mode: 'no-cors'}
         );
-        const result = await response.json();
+        const result = await response.JSON();
         const { authUrl } = result;
         return (window.location.href = authUrl);
       }
