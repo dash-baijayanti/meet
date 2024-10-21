@@ -8,7 +8,9 @@ const CitySearch = ({allLocations, setCurrentCity}) => {
 
   useEffect(() => {
     setSuggestions(allLocations);
-  }, [`${allLocations}`]);
+  },
+  //  [`${allLocations}`]
+  [allLocations]);
   // Why use ${allLocations} and not just allLocations? Well, 
   // it’s important to always avoid directly putting complex data-type variables into useEffect’s dependency array.
 
