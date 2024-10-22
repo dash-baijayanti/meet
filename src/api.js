@@ -44,19 +44,29 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url =  `https://m4smi1kcse.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/{access_token}`;
+    try{
+    const url =  `https://m4smi1kcse.execute-api.eu-central-1.amazonaws.com/dev/api/get-events/${token}`;
     const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
     const result = await response.json();
     if (result) {
       return result.events;
-    } else return null; 
+    } else {
+      throw new Error('Empty response from server');
+    }
+  } catch (error) {
+    console.error("Error fetching events:", error);
+    return [];
   }
+}
 };
 
 const getToken = async (code) => {
   // const encodeCode = encodeURIComponent(code);
   const response = await fetch(
-    `https://m4smi1kcse.execute-api.eu-central-1.amazonaws.com/dev/api/token/{code}`
+    `https://m4smi1kcse.execute-api.eu-central-1.amazonaws.com/dev/api/token/${code}`
   );
   const { access_token } = await response.json();
   access_token && localStorage.setItem("access_token", access_token);
@@ -74,7 +84,7 @@ export const getAccessToken = async () => {
     const code = await searchParams.get("code");
       if (!code) {
         const response = await fetch(
-          "https://cctxyvyeul.execute-api.eu-central-1.amazonaws.com/api/get-auth-url"
+          "https://cctxyvyeul.execute-api.eu-central-1.amazonaws.com/dev/api/get-auth-url"
         );
         const result = await response.json();
         const { authUrl } = result;
