@@ -2,10 +2,7 @@ import { render,within, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import CitySearch from "../components/CitySearch";
 import { extractLocations, getEvents } from "../api";
-import App from "../App";
-import './App.css';
 
-// jest.mock("../api");
 
 describe('<CitySearch /> component', () => {
   let CitySearchComponent;
@@ -14,9 +11,6 @@ describe('<CitySearch /> component', () => {
       //  setCurrentCity={() => {}}
        allLocations={[]}/>);
   });
-  // afterEach(() => {
-  //   cleanup(); // Ensure everything is cleaned up after each test
-  //  });
 
   test('renders text input',  () => {
     const CityTextbox = CitySearchComponent.queryByRole('textbox');
