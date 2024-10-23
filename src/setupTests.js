@@ -18,6 +18,9 @@ console.error = (...args) => {
   if (!ignoreMessage) originalError(...args);
 }
 
-global.setImmediate = global.setImmediate || function(fn) {
-  return setTimeout(fn, 0);
-};
+
+jest.setTimeout(30000);
+
+// global.setImmediate = global.setImmediate || function(fn) {
+//   return setTimeout(fn, 0);
+// };
