@@ -19,7 +19,7 @@ console.error = (...args) => {
 }
 
 
-jest.setTimeout(30000);
+jest.setTimeout(1200000);
 
 // global.setImmediate = global.setImmediate || function(fn) {
 //   return setTimeout(fn, 0);

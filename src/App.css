@@ -42,7 +42,7 @@
   padding: 20px;          /* Adds padding around each list item */
   margin-bottom: 20px;
   margin-top: 20px;    /* Adds space between each event */
-  border: 2px solid #9896961d; /* Adds a light gray border */
+  border: 2px solid #9697981d; /* Adds a light gray border */
   border-radius: 10px;    /* Rounds the corners of the border */
   background-color: rgba(128, 123, 123, 0); /* Adds a white background to each list item */
 
@@ -55,10 +55,10 @@
   font-weight: bold;  /* Makes the event title bold */
   font-size: 18px;
   font-family: 'Courier New', Courier, monospace;
-  border: 2px solid #7472720d;
+  border: 2px solid#61dafb3d;
   border-radius: 10px; 
   background-color: rgba(123, 121, 121, 0.115);  
-  box-shadow: #61dafb;
+  box-shadow: 4px 2px 1px #61dafb3d;
 }
 
 #event-list li .eventDetails p 
