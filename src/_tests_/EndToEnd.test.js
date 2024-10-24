@@ -5,47 +5,36 @@ describe('show/hide an event details', () => {
   let page;
 
   beforeAll(async () => {
-   try {
+  
       browser = await puppeteer.launch({
         headless: false,
         slowMo: 250,
         timeout: 0, // Disable timeout
       });
 
-      if (!browser) {
-        throw new Error('Browser initialization failed.');
-      }
-
       page = await browser.newPage();
 
-      if (!page) {
-        throw new Error('Page initialization failed.');
-      }
-
       await page.goto('http://localhost:3000/');
-      await page.waitForSelector('.event', { timeout: 1200000 });
-    } catch (error) {
-      console.error('Error initializing browser or navigating to localhost:', error);
-    }
+      await page.waitForSelector('.eventSummary');
   });
   afterAll(() => {
-    if (browser) {
+   
       browser.close();
-    }
+  
   });
 
 test('An event element is collapsed by default', async () => {
  
-  const eventDetails = await page.$('.event .details');
+  const eventDetails = await page.$('.eventSummary .show-details-btn');
   expect(eventDetails).toBeNull();
  
 });
 
 test('User can expand an event to see its details', async () => {
 
-  await page.click('.event .details-btn');
+  await page.click('.show-details-btn');
 
-  const eventDetails = await page.$('.event .details');
+  const eventDetails = await page.$('.eventDetails');
   expect(eventDetails).toBeDefined();
   
 });
