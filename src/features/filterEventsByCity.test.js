@@ -8,15 +8,16 @@ import userEvent from '@testing-library/user-event';
 const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 defineFeature(feature, test => {
+
  test('When user hasn’t searched for a city, show upcoming events from all cities.',({
   given,
   when,
   then,
  }) => {
+  
   given('user hasn’t searched for any city',() => {}  );
-
-  // AppComponent  need to use in more than just the when step
   let AppComponent;
+
   when('the user opens the app', () => {
     AppComponent = render(<App />);
   });
