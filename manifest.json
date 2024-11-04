@@ -27,9 +27,10 @@
       "purpose": "maskable"
     }
   ],
-  "start_url": ".",
+  "id": "/meet/",
+  "start_url": "/meet/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "id":"meet@id"
+  "background_color": "#ffffff"
+  
 }
