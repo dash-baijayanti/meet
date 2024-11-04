@@ -56,36 +56,22 @@ function registerValidSW(swUrl, config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
+      // Check if there's an updated service worker waiting to activate
+      if (registration.waiting) {
+        notifyUserAboutUpdate(registration);
+      }
+
       registration.onupdatefound = () => {
         const installingWorker = registration.installing;
-        if (installingWorker == null) {
-          return;
-        }
+        if (installingWorker == null) return;
+
         installingWorker.onstatechange = () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
-              // At this point, the updated precached content has been fetched,
-              // but the previous service worker will still serve the older
-              // content until all client tabs are closed.
-              console.log(
-                'New content is available and will be used when all ' +
-                  'tabs for this page are closed. See https://cra.link/PWA.'
-              );
-
-              // Execute callback
-              if (config && config.onUpdate) {
-                config.onUpdate(registration);
-              }
+              // New update available
+              notifyUserAboutUpdate(registration);
             } else {
-              // At this point, everything has been precached.
-              // It's the perfect time to display a
-              // "Content is cached for offline use." message.
-              console.log('Content is cached for offline use.');
-
-              // Execute callback
-              if (config && config.onSuccess) {
-                config.onSuccess(registration);
-              }
+              console.log('Content is now available offline!');
             }
           }
         };
@@ -94,6 +80,14 @@ function registerValidSW(swUrl, config) {
     .catch((error) => {
       console.error('Error during service worker registration:', error);
     });
+}
+
+// Helper function to notify the user and skip waiting
+function notifyUserAboutUpdate(registration) {
+  if (window.confirm("A new version is available. Refresh to update?")) {
+    registration.waiting.postMessage({ type: "SKIP_WAITING" });
+    window.location.reload();
+  }
 }
 
 function checkValidServiceWorker(swUrl, config) {
