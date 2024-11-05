@@ -4,7 +4,7 @@ import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { useEffect, useState, useCallback } from 'react';
 import { getEvents,extractLocations } from './api';
-import { InfoAlert, ErrorAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 
 import './App.css';
 
@@ -15,6 +15,7 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
 
   const fetchData =  useCallback(async () => {
 
@@ -37,6 +38,9 @@ const App = () => {
       </div>
       <div className="alerts-container">
           {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
+      </div>
+      <div className="alerts-container">
+          {warningAlert.length ? <WarningAlert text={warningAlert}/> : null}
       </div>
       {/* Pass props to CitySearch */}
       <CitySearch 
