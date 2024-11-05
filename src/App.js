@@ -28,6 +28,11 @@ const App = () => {
   }, [currentCity, currentNOE]);
 
   useEffect(() => {
+    if (!navigator.onLine) {
+      setWarningAlert("You are offline. Events data may be outdated.")
+    } else {
+      setWarningAlert("");
+    }
     fetchData();
   }, [fetchData]);
 

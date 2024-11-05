@@ -31,19 +31,7 @@
   "start_url": "/meet/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "screenshots": [
-    {
-      "src": "./screenshot-wide.png",
-      "sizes": "1280x720",
-      "type": "image/png",
-      "form_factor": "wide"
-    },
-    {
-      "src": "./screenshot-mobile.png",
-      "sizes": "640x480",
-      "type": "image/png"
-    }
-  ]
+  "background_color": "#ffffff"
+ 
   
 }
