@@ -3,21 +3,9 @@ import React from 'react';
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer
 } from 'recharts';
-const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink', 
-  '#4CAF50', // Green
-  '#FF5722', // Deep Orange
-  '#9C27B0', // Purple
-  '#3F51B5', // Indigo
-  '#FFEB3B', // Yellow
-  '#795548', // Brown
-  '#607D8B', // Blue Grey
-  '#CDDC39', // Lime
-  '#673AB7', // Deep Purple
-  '#F44336', // Bright Red
-  '#2196F3', // Bright Blue
-  '#E91E63', // Hot Pink
-  '#00BCD4', // Cyan
-  '#009688'  // Teal
+const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink', '#FF69B4', '#BA55D3', 
+  '#00FA9A', '#FFD700', '#FF6347', '#4682B4', '#8A2BE2', '#5F9EA0', '#4B0082', 
+  '#7FFF00', '#DC143C', '#00CED1'
 ];
 
 const getPath = (x, y, width, height) => {
@@ -27,8 +15,13 @@ const getPath = (x, y, width, height) => {
   Z`;
 };
 
+const getRandomColor = () => {
+  return `#${Math.floor(Math.random()*16777215).toString(16)}`;
+};
+
 const TriangleBar = (props) => {
-  const { fill, x, y, width, height } = props;
+  const { x, y, width, height } = props;
+  const fill = getRandomColor();
 
   return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
 };
