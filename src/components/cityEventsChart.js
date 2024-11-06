@@ -3,7 +3,22 @@ import React from 'react';
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer
 } from 'recharts';
-const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
+const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink', 
+  '#4CAF50', // Green
+  '#FF5722', // Deep Orange
+  '#9C27B0', // Purple
+  '#3F51B5', // Indigo
+  '#FFEB3B', // Yellow
+  '#795548', // Brown
+  '#607D8B', // Blue Grey
+  '#CDDC39', // Lime
+  '#673AB7', // Deep Purple
+  '#F44336', // Bright Red
+  '#2196F3', // Bright Blue
+  '#E91E63', // Hot Pink
+  '#00BCD4', // Cyan
+  '#009688'  // Teal
+];
 
 const getPath = (x, y, width, height) => {
   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
