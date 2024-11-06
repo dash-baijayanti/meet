@@ -5,6 +5,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { useEffect, useState, useCallback } from 'react';
 import { getEvents,extractLocations } from './api';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
+import CityEventsChart from './components/cityEventsChart';
 
 import './App.css';
 
@@ -16,6 +17,7 @@ const App = () => {
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
   const [warningAlert, setWarningAlert] = useState("");
+
 
   const fetchData =  useCallback(async () => {
 
@@ -60,7 +62,7 @@ const App = () => {
          setCurrentNOE={setCurrentNOE} 
          setErrorAlert={setErrorAlert} // Update the number of events
       />
-
+      <CityEventsChart allLocations={allLocations} events={events} />
       {/* Display the event list */}
       <EventList events={events} />
     </div>
