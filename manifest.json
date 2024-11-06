@@ -34,13 +34,13 @@
   "background_color": "#ffffff",
   "screenshots": [
     {
-      "src": "./screenshot-wide.png",
+      "src": "meet-app-512.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "./screenshot-mobile.png",
+      "src": "meet-app-192.png",
       "sizes": "640x480",
       "type": "image/png"
     }
