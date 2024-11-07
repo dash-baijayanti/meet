@@ -3,6 +3,7 @@ import React from 'react';
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer
 } from 'recharts';
+
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink', '#FF69B4', '#BA55D3', 
   '#00FA9A', '#FFD700', '#FF6347', '#4682B4', '#8A2BE2', '#5F9EA0', '#4B0082', 
   '#7FFF00', '#DC143C', '#00CED1'
