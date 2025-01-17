@@ -57,4 +57,10 @@ This diagram represents the architecture of the Meet App built using serverless 
 5. **AWS Cognito (Authentication)**: Manages user sign-up/sign-in, identity verification.
 6. **CloudWatch (Monitoring)**: Monitors the performance and logs of the Lambda functions.
 
+<img src="meet/Screenshot 2024-11-11 215111.png" alt="meet" height="300" width="500">
+<img src="meet/Screenshot 2024-11-11 215159.png" alt="meet" height="300" width="500">
+<img src="meet/Screenshot 2024-11-11 215242.png" alt="meet" height="300" width="500">
+<img src="meet/Screenshot 2024-11-11 215316.png" alt="meet" height="300" width="500">
+<img src="meet/Screenshot 2024-11-11 215357.png" alt="meet" height="300" width="500">
+
 
